@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
 COPY *.sln .
-COPY "Inventory Tracker/InventoryTracker.csproj" "./Inventory Tracker/"
+COPY "Inventory Tracker/InventoryTracker.csproj" "Inventory Tracker/"
 RUN dotnet restore
 
 COPY . .
