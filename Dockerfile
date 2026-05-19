@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
 COPY *.sln .
-COPY "InventoryTracker/InventoryTracker.csproj" "Inventory Tracker/"
+COPY InventoryTracker/InventoryTracker.csproj InventoryTracker/
 RUN dotnet restore
 
 COPY . .
@@ -18,3 +18,4 @@ EXPOSE 8080
 ENV ASPNETCORE_URLS=http://+:8080
 
 ENTRYPOINT ["dotnet", "InventoryTracker.dll"]
+
