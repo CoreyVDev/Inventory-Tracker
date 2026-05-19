@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\corey\\OneDrive\\Desktop\\Inventory Tracker\\Inventory Tracker\\Inventory Tracker.csproj",
-      "projectName": "Inventory Tracker",
-      "projectPath": "C:\\Users\\corey\\OneDrive\\Desktop\\Inventory Tracker\\Inventory Tracker\\Inventory Tracker.csproj",
+      "projectUniqueName": "C:\\Users\\corey\\OneDrive\\Desktop\\InventoryTracker\\InventoryTracker.csproj",
+      "projectName": "InventoryTracker",
+      "projectPath": "C:\\Users\\corey\\OneDrive\\Desktop\\InventoryTracker\\InventoryTracker.csproj",
       "packagesPath": "C:\\Users\\corey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\corey\\OneDrive\\Desktop\\Inventory Tracker\\Inventory Tracker\\obj\\",
+      "outputPath": "C:\\Users\\corey\\OneDrive\\Desktop\\InventoryTracker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\corey\\AppData\\Roaming\\NuGet\\NuGet.Config",
