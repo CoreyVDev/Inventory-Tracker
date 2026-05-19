@@ -19,4 +19,3 @@ ENV ASPNETCORE_URLS=http://+:8080
 
 ENTRYPOINT ["dotnet", "Inventory Tracker.dll"]
 
-
