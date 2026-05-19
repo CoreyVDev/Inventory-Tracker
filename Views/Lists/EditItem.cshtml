@@ -1,0 +1,27 @@
+﻿@model Inventory_Tracker.Models.Item
+
+<h2>Edit Item</h2>
+
+<form method="post">
+    <input type="hidden" name="index" value="@ViewBag.Index" />
+    <input type="hidden" name="name" value="@ViewBag.ListName" />
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="Name" value="@Model.Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Quantity</label>
+        <input type="number" name="Quantity" value="@Model.Quantity" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" step="0.01" name="Price" value="@Model.Price" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+</form>
+
+

@@ -1,0 +1,13 @@
+﻿@model Inventory_Tracker.Models.Item
+
+<h2>Delete Item</h2>
+
+<p>Are you sure you want to delete <strong>@Model.Name</strong>?</p>
+
+<form method="post" action="/Lists/DeleteItemConfirmed">
+    <input type="hidden" name="index" value="@ViewBag.Index" />
+    <input type="hidden" name="name" value="@ViewBag.ListName" />
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="/Lists/ViewList?name=@ViewBag.ListName" class="btn btn-secondary">Cancel</a>
+</form>

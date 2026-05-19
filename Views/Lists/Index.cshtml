@@ -1,0 +1,19 @@
+﻿@model List<Inventory_Tracker.Models.ItemList>
+
+<div class="page-wrapper">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1>Overview</h1>
+        <a href="/Lists/Create" class="btn btn-success mb-3">ADD</a>
+
+        <div class="list-grid">
+            @foreach (var list in Model)
+            {
+                <a href="/Lists/ViewList?name=@list.Name" class="card-link">
+                    <div class="list-card">
+                        <h3>@list.Name</h3>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@model Inventory_Tracker.Models.InventoryDashboardViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="home-card">
+    <h1 class="display-4"><strong>Welcome</strong> </h1>
+    <p><strong>To start your inventory please click the "Create List" button below</strong> </p>
+    <a href="/Inventory" class="btn btn-primary">Create List</a>
+</div>
+<div class="text-center">
+<h1 class="mb-4">Inventory Dashboard</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card dashboard-card p-3 shadow-sm">
+            <h4>Total Items</h4>
+            <p class="display-6">@Model.TotalItems</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card dashboard-card p-3 shadow-sm">
+            <h4>Total Value</h4>
+            <p class="display-6">$@Model.TotalValue</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card dashboard-card p-3 shadow-sm">
+            <h4>Low Stock Items</h4>
+            <p class="display-6">@Model.LowStock</p>
+        </div>
+    </div>
+</div>
+

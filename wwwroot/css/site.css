@@ -1,0 +1,145 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+  margin-bottom: 60px;
+  background: #0D1B2A;
+  color: #F5F7FA;
+  accent-color: #3A8DFF;
+  
+}
+.page-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #1A2634;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.list-card {
+    background: #1A2634;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #2A3A4A;
+    transition: 0.2s;
+}
+
+.list-card:hover {
+        border-color: #3A8DFF;
+        transform: translateY(-2px);
+    }
+.page-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+.fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #3A8DFF;
+    color: #F5F7FA;
+    font-size: 32px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: 0.2s;
+}
+
+.fab:hover {
+        background: #A970FF;
+    }
+.list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+h1 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #eaeaea;
+}
+.home-card {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 40px;
+    background: #1A2634;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.list-card {
+    text-align: center;
+    align-items:center;
+    justify-content:center;
+    display: inline-flex;
+    padding: 20px;
+    height:120px;
+    width: auto;
+
+}
+
+.card-link {
+    text-decoration: none !important;
+    color: inherit;
+}
+table th{
+    color: white;
+}
+table td {
+    color: white;
+}
+.list-card h3 {
+    font-size: 3rem; /* bigger text */
+    font-weight: 600; /* thicker */
+    text-align: center; /* centered */
+    margin: 0; /* removes empty space */
+    padding: 30px 0; /* fills the card vertically */
+}
+h4{
+    color:white;
+}
+.dashboard-card {
+    background-color: #1e1e1e; /* dark card */
+    color: #f5f5f5; /* light text */
+    border: 1px solid #3a8dff; /* your accent blue */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Inventory Layout";
+}
+
+@model List<Inventory_Tracker.Models.Item>
+
+<h1 class="text-center"><strong>Inventory</strong></h1>
+
+<div class="list-group mb-3">
+    @foreach (var list in ViewBag.Lists)
+    {
+        <a href="/Inventory?listId=@list.Id"
+       class="list-group-item @(ViewBag.SelectedList == list.Id ? "active" : "")">
+            @list.Name
+        </a>
+    }
+</div>
+
+<a href="/Inventory/Add" class="btn btn-success">Add Item</a>
+
+<table class="table table-striped mt-3">
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Tags</th>
+        <th>Actions</th>
+    </tr>
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>@Model[i].Name</td>
+            <td>@Model[i].Quantity</td>
+            <td>@Model[i].Price</td>
+
+            <td>
+            @if (!string.IsNullOrEmpty(Model[i].Tags))
+            {
+                var tags = Model[i].Tags.Split(',');
+                foreach (var tag in tags)
+                {
+                    <span class="badge bg-primary">@tag.Trim()</span>
+                }
+            }
+            </td>
+
+            <td>
+                <a href="/Inventory/EditItem/@Model[i].Id" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/Inventory/DeleteItem/@Model[i].Id" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

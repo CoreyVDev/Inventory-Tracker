@@ -1,0 +1,31 @@
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\bin\Debug\net7.0\appsettings.json
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\bin\Debug\net7.0\Inventory Tracker.staticwebassets.runtime.json
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\bin\Debug\net7.0\Inventory Tracker.exe
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\bin\Debug\net7.0\Inventory Tracker.deps.json
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\bin\Debug\net7.0\Inventory Tracker.runtimeconfig.json
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\bin\Debug\net7.0\Inventory Tracker.dll
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\bin\Debug\net7.0\Inventory Tracker.pdb
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.csproj.AssemblyReference.cache
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.AssemblyInfoInputs.cache
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.AssemblyInfo.cs
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.csproj.CoreCompileInputs.cache
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.RazorAssemblyInfo.cache
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.RazorAssemblyInfo.cs
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\staticwebassets\msbuild.Inventory Tracker.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\staticwebassets\msbuild.build.Inventory Tracker.props
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Inventory Tracker.props
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Inventory Tracker.props
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\scopedcss\bundle\Inventory Tracker.styles.css
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\scopedcss\projectbundle\Inventory Tracker.bundle.scp.css
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.dll
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\refint\Inventory Tracker.dll
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.pdb
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\Inventory Tracker.genruntimeconfig.cache
+C:\Users\corey\OneDrive\Desktop\Inventory Tracker\Inventory Tracker\obj\Debug\net7.0\ref\Inventory Tracker.dll
