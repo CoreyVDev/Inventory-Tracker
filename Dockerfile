@@ -1,21 +1,19 @@
-# Build stage
+# Use the official .NET SDK image
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
-
-COPY *.sln .
-COPY InventoryTracker/InventoryTracker.csproj InventoryTracker/
-RUN dotnet restore
-
-COPY . .
-RUN dotnet publish -c Release -o /app/publish
-
-# Runtime stage
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS final
 WORKDIR /app
-COPY --from=build /app/publish .
 
-EXPOSE 8080
-ENV ASPNETCORE_URLS=http://+:8080
+# Copy everything
+COPY . .
+
+# Restore and build
+RUN dotnet restore InventoryTracker.csproj
+RUN dotnet publish InventoryTracker.csproj -c Release -o out
+
+# Runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
+WORKDIR /app
+COPY --from=build /app/out .
 
 ENTRYPOINT ["dotnet", "InventoryTracker.dll"]
+
 
