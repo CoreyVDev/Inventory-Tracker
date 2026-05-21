@@ -15,7 +15,7 @@ namespace Inventory_Tracker.Controllers
 
         public IActionResult Add(string listName)
         {
-			var list = ListsController.ItemLists.FirstOrDefault(l => l.Name.Equals(listName ?? "", StringComparison.OrdinalIgnoreCase));
+			var list = ListsController.ItemLists.FirstOrDefault(l => l.Name.Trim().Equals(listName?.Trim() ?? "", StringComparison.OrdinalIgnoreCase));
 
 			if (list != null)
 				ViewBag.ListId = list.Id;
