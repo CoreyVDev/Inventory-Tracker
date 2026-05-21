@@ -14,7 +14,7 @@ namespace Inventory_Tracker.Models
 		[Range(0, int.MaxValue, ErrorMessage = "Quantity cannot be negative.")]
 		public int Quantity { get; set; }
 
-		public int ItemListId { get; set; }
+		public int? ItemListId { get; set; }
 		public ItemList ItemList { get; set; }
 
 		public string Tags { get; set; }
