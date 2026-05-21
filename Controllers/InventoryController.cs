@@ -13,17 +13,33 @@ namespace Inventory_Tracker.Controllers
         }
         
 
-        public IActionResult Add(string listName)
-        {
-			var list = ListsController.ItemLists.FirstOrDefault(l => l.Name.Trim().Equals(listName?.Trim() ?? "", StringComparison.OrdinalIgnoreCase));
+       public IActionResult Add(string listName)
+{
+    if (string.IsNullOrWhiteSpace(listName))
+    {
+        ViewBag.ListId = null;
+        ViewBag.ListName = "";
+        ViewBag.Lists = ListsController.ItemLists;
+        return View();
+    }
 
-			if (list != null)
-				ViewBag.ListId = list.Id;
-            
-            ViewBag.ListName = listName;
-			ViewBag.Lists = ListsController.ItemLists;
-            return View();
-        }
+    // Bulletproof lookup
+    var list = ListsController.ItemLists
+        .FirstOrDefault(l => l.Name != null &&
+                             listName != null &&
+                             l.Name.Trim().Equals(listName.Trim(), StringComparison.OrdinalIgnoreCase));
+
+    if (list != null)
+        ViewBag.ListId = list.Id;
+    else
+        Console.WriteLine("LIST NOT FOUND: " + listName);
+
+    ViewBag.ListName = listName;
+    ViewBag.Lists = ListsController.ItemLists;
+
+    return View();
+}
+
 
         [HttpPost]
         public IActionResult Add(Item item, int? itemListId)
