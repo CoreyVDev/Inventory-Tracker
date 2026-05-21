@@ -24,7 +24,7 @@
 
 	@if (!string.IsNullOrEmpty(listName))
 	{
-		<input type="hidden" name="listName" value="@listName" />
+		<input type="hidden" name="ItemListId" value="@ViewBag.ListId" />
 
 		<div class="alert alert-info">
 			Adding item to list: <strong>@listName</strong>
