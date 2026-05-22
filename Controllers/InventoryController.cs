@@ -24,17 +24,28 @@ namespace Inventory_Tracker.Controllers
     }
 
     // Bulletproof lookup
-    var list = ListsController.ItemLists
-        .FirstOrDefault(l => l.Name != null &&
-                             listName != null &&
-                             l.Name.Trim().Equals(listName.Trim(), StringComparison.OrdinalIgnoreCase));
+   var list = ListsController.ItemLists
+    .FirstOrDefault(l =>
+        string.Equals(
+            l.Name?.Trim(),
+            listName?.Trim(),
+            StringComparison.OrdinalIgnoreCase
+        )
+    );
+
 
     if (list != null)
+	{
         ViewBag.ListId = list.Id;
+		ViewBag.ListName = list.Name;
+		}
     else
+	{
         Console.WriteLine("LIST NOT FOUND: " + listName);
-
-    ViewBag.ListName = listName;
+		ViewBag.ListId = null;
+    	ViewBag.ListName = listName;
+		}
+		
     ViewBag.Lists = ListsController.ItemLists;
 
     return View();
