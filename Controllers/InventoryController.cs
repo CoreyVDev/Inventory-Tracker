@@ -15,6 +15,10 @@ namespace Inventory_Tracker.Controllers
 
        public IActionResult Add(string listName)
 {
+	if (string.IsNullOrWhiteSpace(listName))
+	{
+		listName = Request.Form["listName"];
+	}
     if (string.IsNullOrWhiteSpace(listName))
     {
         ViewBag.ListId = null;
