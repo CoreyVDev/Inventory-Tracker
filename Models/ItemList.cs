@@ -3,7 +3,7 @@
 namespace Inventory_Tracker.Models { 
 public class ItemList
 {
-	public int Id { get; set; }
+	public int Id { get; set; } = Guid.NewGuid().GetHashCode();
 	public string Name { get; set; }
 
 	public decimal Price { get; set; }
