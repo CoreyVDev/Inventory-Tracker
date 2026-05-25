@@ -51,6 +51,34 @@ namespace Inventory_Tracker.Controllers
     ViewBag.Lists = ListsController.ItemLists;
     return View();
 }
+[HttpPost]
+public IActionResult Add(Item item, int? itemListId, string listName)
+{
+    if (!ModelState.IsValid)
+    {
+        ViewBag.ListName = listName;
+        ViewBag.Lists = ListsController.ItemLists;
+        return View(item);
+    }
+
+    item.Id = Guid.NewGuid().GetHashCode();
+
+    if (itemListId.HasValue)
+    {
+        var list = ListsController.ItemLists.FirstOrDefault(l => l.Id == itemListId.Value);
+        if (list != null)
+        {
+            list.Items.Add(item);
+            return Redirect($"/Lists/ViewList?name={list.Name}");
+        }
+    }
+
+    ViewBag.ListName = listName;
+    ViewBag.Lists = ListsController.ItemLists;
+    ModelState.AddModelError("", "You must select a list.");
+    return View(item);
+}
+
 
 
 
