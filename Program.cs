@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Inventory_Tracker.Data;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<InventoryContext>(options =>
+    options.UseSqlite("Data Source=inventory.db"));
 
 var app = builder.Build();
 
