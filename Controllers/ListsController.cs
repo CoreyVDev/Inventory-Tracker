@@ -19,6 +19,9 @@ namespace Inventory_Tracker.Controllers
 		[HttpPost]
 		public IActionResult Create(ItemList list)
 		{
+			list.Id = Guid.NewGuid().GetHashCode();
+			list.Items = new List<Item>();
+			
 			ItemLists.Add(list);
 			return RedirectToAction("Index");
 		}

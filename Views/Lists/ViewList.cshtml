@@ -2,7 +2,7 @@
 
 <h1 class="text-center"><strong>@Model.Name</strong></h1>
 
-<a href="/Inventory/Add?listName=@Model.Name" class="btn btn-success mb-3">Add Item to This List</a>
+<a href="/Inventory/Add?listName=@Uri.EscapeDataString(Model.Name)" class="btn btn-success mb-3">Add Item</a>
 
 <table class="table table-striped table=bordered">
 	<tr>

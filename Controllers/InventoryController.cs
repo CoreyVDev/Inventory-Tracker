@@ -6,61 +6,54 @@ namespace Inventory_Tracker.Controllers
 {
     public class InventoryController : Controller
     {
-
         public IActionResult Index()
         {
             return RedirectToAction("Index", "Lists");
         }
-        
 
         public IActionResult Add(string listName)
         {
+            // Try URL first
+            if (string.IsNullOrWhiteSpace(listName))
+                listName = Request.Query["listName"];
+
+            // Try POST fallback
+            if (string.IsNullOrWhiteSpace(listName))
+                listName = Request.Form["listName"];
+
+            // If still empty, show dropdown
+            if (string.IsNullOrWhiteSpace(listName))
+            {
+                ViewBag.ListId = null;
+                ViewBag.ListName = "";
+                ViewBag.Lists = ListsController.ItemLists;
+                return View();
+            }
+
+            // Find list
+            var list = ListsController.ItemLists
+                .FirstOrDefault(l =>
+                    string.Equals(l.Name?.Trim(), listName.Trim(), System.StringComparison.OrdinalIgnoreCase));
+
+            if (list != null)
+            {
+                ViewBag.ListId = list.Id;
+                ViewBag.ListName = list.Name;
+            }
+            else
+            {
+                ViewBag.ListId = null;
+                ViewBag.ListName = listName;
+            }
+
             ViewBag.Lists = ListsController.ItemLists;
-            ViewBag.ListName = listName;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Add(Item item, string listName, int? itemListId)
+        public IActionResult Add(Item item, int? itemListId, string listName)
         {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Lists = ListsController.ItemLists;
-                ViewBag.ListName = listName;
-                return View(item);
-            }
-			item.Id = Guid.NewGuid().GetHashCode();
-            if (!string.IsNullOrEmpty(listName))
-            {
-                var list = ListsController.ItemLists.FirstOrDefault(l => l.Name == listName);
-                list.Items.Add(item);
-
-                return Redirect($"/Lists/ViewList?name={list.Name}");
-            }
-            if (itemListId.HasValue)
-            {
-                var list = ListsController.ItemLists.FirstOrDefault(l => l.Id == itemListId.Value);
-                list.Items.Add(item);
-               
-                return Redirect($"/Lists/ViewList?name={list.Name}");
-            }
-            return RedirectToAction("Add");
+            return Content($"listName='{listName}', itemListId='{itemListId}', Name='{item.Name}', Qty='{item.Quantity}', Price='{item.Price}'");
         }
-        public IActionResult Dashboard()
-        {
-            var items = ListsController.ItemLists
-                .SelectMany(l => l.Items)
-                .ToList();
-
-            var model = new InventoryDashboardViewModel
-            {
-                TotalItems = items.Count
-        };
-        return View(model);
-        }
-
-		
-	}
+    }
 }
-
-       
