@@ -1,17 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Inventory_Tracker.Data;
 using Inventory_Tracker.Models;
-using System.Linq;
 
 namespace Inventory_Tracker.Controllers
 {
     public class InventoryController : Controller
     {
+        private readonly InventoryContext _context;
+
+        public InventoryController(InventoryContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return RedirectToAction("Index", "Lists");
         }
 
-        public IActionResult Add(string listName)
+        public async Task<IActionResult> Add(string listName)
         {
             // Try URL first
             if (string.IsNullOrWhiteSpace(listName))
@@ -21,19 +29,21 @@ namespace Inventory_Tracker.Controllers
             if (string.IsNullOrWhiteSpace(listName))
                 listName = Request.Form["listName"];
 
-            // If still empty, show dropdown
+            // Load lists from DB
+            var lists = await _context.ItemLists.ToListAsync();
+            ViewBag.Lists = lists;
+
+            // If no listName, show dropdown
             if (string.IsNullOrWhiteSpace(listName))
             {
                 ViewBag.ListId = null;
                 ViewBag.ListName = "";
-                ViewBag.Lists = ListsController.ItemLists;
                 return View();
             }
 
-            // Find list
-            var list = ListsController.ItemLists
-                .FirstOrDefault(l =>
-                    string.Equals(l.Name?.Trim(), listName.Trim(), System.StringComparison.OrdinalIgnoreCase));
+            // Find list by name
+            var list = lists.FirstOrDefault(l =>
+                string.Equals(l.Name?.Trim(), listName.Trim(), StringComparison.OrdinalIgnoreCase));
 
             if (list != null)
             {
@@ -46,14 +56,52 @@ namespace Inventory_Tracker.Controllers
                 ViewBag.ListName = listName;
             }
 
-            ViewBag.Lists = ListsController.ItemLists;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Add(Item item, int? itemListId, string listName)
+        public async Task<IActionResult> Add(Item item, int? itemListId, string listName)
         {
-            return Content($"listName='{listName}', itemListId='{itemListId}', Name='{item.Name}', Qty='{item.Quantity}', Price='{item.Price}'");
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Lists = await _context.ItemLists.ToListAsync();
+                ViewBag.ListName = listName;
+                return View(item);
+            }
+
+            // Add by list name
+            if (!string.IsNullOrEmpty(listName))
+            {
+                var list = await _context.ItemLists
+                    .Include(l => l.Items)
+                    .FirstOrDefaultAsync(l => l.Name == listName);
+
+                if (list == null)
+                    return NotFound();
+
+                list.Items.Add(item);
+                await _context.SaveChangesAsync();
+
+                return Redirect($"/Lists/ViewList?name={list.Name}");
+            }
+
+            // Add by list ID
+            if (itemListId.HasValue)
+            {
+                var list = await _context.ItemLists
+                    .Include(l => l.Items)
+                    .FirstOrDefaultAsync(l => l.Id == itemListId.Value);
+
+                if (list == null)
+                    return NotFound();
+
+                list.Items.Add(item);
+                await _context.SaveChangesAsync();
+
+                return Redirect($"/Lists/ViewList?name={list.Name}");
+            }
+
+            return RedirectToAction("Add");
         }
     }
 }
